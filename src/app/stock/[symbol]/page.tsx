@@ -19,7 +19,7 @@ export default function StockDetails() {
   const symbol = params?.symbol as string | undefined;
 
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
-  
+
   const [stockData, setStockData] = useState<StockPrice | null>(null);
   const [returns, setReturns] = useState<Record<string, number>>({});
   const [error, setError] = useState<string | null>(null);
@@ -111,7 +111,7 @@ export default function StockDetails() {
   }
 
   return (
-    <div>
+    <div className="w-full">
       <Head>
         <title>
           {companyName} ({symbol}) - Stock Details
@@ -164,7 +164,7 @@ export default function StockDetails() {
                 Price Details
               </h2>
               {stockData && (
-                <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
                   <div className="bg-gray-900 text-white p-3 border border-gray-700 rounded-lg shadow-lg">
                     <p>
                       <strong>Close Price:</strong> ₹
@@ -206,10 +206,10 @@ export default function StockDetails() {
 
             {Object.keys(returns).length > 0 && (
               <div className="border border-gray-700 rounded-lg shadow-lg p-4">
-                <h2 className="text-xl md:text-2xl font-semibold mb-2">
+                <h2 className="text-xl md:text-2xl font-semibold mb-4">
                   Stock Returns
                 </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 md:gap-4">
                   {Object.entries(returns).map(([label, value]) => (
                     <div
                       key={label}

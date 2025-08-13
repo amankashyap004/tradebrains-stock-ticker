@@ -41,8 +41,8 @@ export default function RootLayout({
         className={`${poppins.className} antialiased bg-[#292E3F] text-white scroll-smooth`}
       >
         <Header />
-        <div className="h-24"></div>
-         <FavoritesProvider>{children}</FavoritesProvider>
+        <div className="h-20 md:h-24"></div>
+        <FavoritesProvider>{children}</FavoritesProvider>
         <div className="fixed bottom-0 left-0 right-0">
           <TickerBar />
         </div>

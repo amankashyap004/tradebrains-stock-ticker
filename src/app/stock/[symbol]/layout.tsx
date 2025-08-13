@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { Metadata } from "next";
-import Container from "@/components/common/Container";
 import { searchStocks } from "@/utils/api";
 import { StockSearchResult } from "@/types";
 
@@ -34,5 +33,5 @@ export async function generateMetadata({
 }
 
 export default function StockLayout({ children }: StockLayoutProps) {
-  return <Container>{children}</Container>;
+  return <>{children}</>;
 }
