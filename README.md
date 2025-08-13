@@ -79,6 +79,7 @@ tradebrains-stock-ticker/
 │   │   ├── page.tsx
 │   │   └── stock/
 │   │       └── [symbol]/
+│   │           ├── layout.tsx
 │   │           └── page.tsx
 │   ├── components/
 │   │   ├── Favorites.tsx
