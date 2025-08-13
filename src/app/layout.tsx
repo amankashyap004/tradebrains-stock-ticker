@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import TickerBar from "@/components/TickerBar";
+import Header from "@/components/common/Header";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -10,7 +13,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "GStock Ticker | Trade Brains",
+    default: "Stock Ticker | Trade Brains",
     template: "%s | Trade Brains",
   },
   description: "Trade Brains Stock Ticker",
@@ -34,7 +37,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body
+        className={`${poppins.className} antialiased bg-[#292E3F] text-white scroll-smooth`}
+      >
+        <Header />
+        <div className="h-24"></div>
+         <FavoritesProvider>{children}</FavoritesProvider>
+        <div className="fixed bottom-0 left-0 right-0">
+          <TickerBar />
+        </div>
+        <div className="h-24"></div>
+      </body>
     </html>
   );
 }
