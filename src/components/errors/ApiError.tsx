@@ -4,7 +4,13 @@ import { useRouter } from "next/navigation";
 import { MdOutlineCloudOff } from "react-icons/md";
 import Button from "../ui/Button";
 
-export default function ApiError({ error }: any) {
+interface ApiErrorProps {
+  error?: {
+    message?: string;
+  };
+}
+
+export default function ApiError({ error }: ApiErrorProps) {
   const router = useRouter();
 
   return (

@@ -116,7 +116,7 @@ const StockGraph: React.FC<StockGraphProps> = ({ symbol }) => {
 
   if (loading) {
     return (
-      <div className="text-center flex flex-col justify-center items-center h-[400px] lg:h-[450px]">
+      <div className="text-center flex flex-col justify-center items-center h-[350px] lg:h-[450px]">
         <Loading className="w-36 md:w-40" />
       </div>
     );
@@ -141,7 +141,7 @@ const StockGraph: React.FC<StockGraphProps> = ({ symbol }) => {
 
   return (
     <div className="relative w-full">
-      <div className="h-[400px] lg:h-[450px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-2xl overflow-hidden">
+      <div className="h-[350px] lg:h-[450px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-2xl overflow-hidden">
         <ResponsiveContainer width="100%" height="90%">
           <AreaChart
             data={data}
@@ -206,7 +206,7 @@ const StockGraph: React.FC<StockGraphProps> = ({ symbol }) => {
           </AreaChart>
         </ResponsiveContainer>
 
-        <div className="w-full px-4 flex justify-between gap-2 z-50">
+        <div className="w-full px-4 flex justify-between gap-2 z-50 overflow-auto">
           {["1D", "1W", "1M", "3M", "6M", "1Y", "MAX"].map((range) => (
             <button
               key={range}

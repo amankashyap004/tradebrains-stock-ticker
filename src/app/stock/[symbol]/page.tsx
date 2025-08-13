@@ -97,7 +97,7 @@ export default function StockDetails() {
   if (error) {
     return (
       <Container>
-        <ApiError error={error} />
+        <ApiError error={{ message: error }} />
       </Container>
     );
   }
@@ -135,7 +135,7 @@ export default function StockDetails() {
               </h1>
               <p className="text-shadow-sm text-gray-300">{symbol}</p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <Button
                 onClick={() =>
                   isFavorite(symbol)
