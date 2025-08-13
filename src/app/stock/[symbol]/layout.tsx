@@ -11,7 +11,7 @@ interface StockLayoutProps {
 export async function generateMetadata({
   params,
 }: {
-  params: { symbol: string } | Promise<{ symbol: string }>;
+  params: Promise<{ symbol: string }>;
 }): Promise<Metadata> {
   const { symbol: rawSymbol } = await params;
   const symbol = rawSymbol?.toUpperCase();
