@@ -19,6 +19,12 @@ interface StockGraphProps {
   symbol: string;
 }
 
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: { payload: StockPrice }[];
+  label?: string;
+}
+
 const StockGraph: React.FC<StockGraphProps> = ({ symbol }) => {
   const [data, setData] = useState<StockPrice[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -100,12 +106,16 @@ const StockGraph: React.FC<StockGraphProps> = ({ symbol }) => {
     return d.toLocaleDateString("en-US", { month: "2-digit", day: "2-digit" });
   };
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip: React.FC<CustomTooltipProps> = ({
+    active,
+    payload,
+    label,
+  }) => {
     if (active && payload && payload.length) {
-      const data = payload[0].payload as StockPrice;
+      const data = payload[0].payload;
       return (
         <div className="bg-gray-900 text-white text-sm p-3 border border-gray-700 rounded-lg shadow-lg">
-          <p>{formatDate(label)}</p>
+          <p>{formatDate(label || "")}</p>
           <p>Close: ₹{data.close.toFixed(2)}</p>
           <p>Open: ₹{data.open.toFixed(2)}</p>
         </div>
