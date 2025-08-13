@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Trade Brains",
   },
   description: "Trade Brains Stock Ticker",
-  metadataBase: new URL("/"),
+  // metadataBase: new URL("/"),
   openGraph: {
     images: [
       {
