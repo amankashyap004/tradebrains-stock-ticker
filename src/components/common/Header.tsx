@@ -30,6 +30,7 @@ export default function Header() {
                 width={200}
                 height={100}
                 quality={100}
+                priority
                 className="object-contain w-full h-full"
               />
             </Link>

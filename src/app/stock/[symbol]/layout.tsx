@@ -6,15 +6,15 @@ import { StockSearchResult } from "@/types";
 
 interface StockLayoutProps {
   children: ReactNode;
-  params: { symbol: string };
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { symbol: string };
+  params: { symbol: string } | Promise<{ symbol: string }>;
 }): Promise<Metadata> {
-  const symbol = params.symbol?.toUpperCase();
+  const { symbol: rawSymbol } = await params;
+  const symbol = rawSymbol?.toUpperCase();
   let companyName = "Stock";
 
   try {
@@ -33,8 +33,6 @@ export async function generateMetadata({
   };
 }
 
-export default function StockLayout({
-  children,
-}: StockLayoutProps) {
+export default function StockLayout({ children }: StockLayoutProps) {
   return <Container>{children}</Container>;
 }
