@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Trade Brains",
   },
   description: "Trade Brains Stock Ticker",
-  // metadataBase: new URL("/"),
+  metadataBase: new URL("https://tradebrains-stock-ticker.vercel.app/"),
   openGraph: {
     images: [
       {
